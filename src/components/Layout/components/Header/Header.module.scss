@@ -129,6 +129,22 @@
     }
 }
 
+.notification {
+    position: relative;
+}
+
+.inbox-notification {
+    display: block;
+    position: absolute;
+    background-color: #fe2c55;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 4px;
+    top: -5px;
+    right: -6px;
+}
+
 .avatar-user {
     width: 32px;
     height: 32px;

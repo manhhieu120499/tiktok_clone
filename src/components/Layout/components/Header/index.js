@@ -167,9 +167,10 @@ function Header() {
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 200]} content="Inbox" placement="bottom">
-                                <button className={cx('user-action-btn')}>
+                                <button className={cx('user-action-btn', 'notification')}>
                                     {/* <FontAwesomeIcon icon={faMessage} /> */}
                                     <Inbox />
+                                    <span className={cx('inbox-notification')}>23</span>
                                 </button>
                             </Tippy>
                         </>
