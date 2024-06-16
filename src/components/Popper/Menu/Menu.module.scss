@@ -1,0 +1,58 @@
+.menu-list {
+    width: 245px;
+    margin-top: 5px;
+}
+
+.wrapper {
+    height: 41px;
+    padding: 10px 8px 10px 16px;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    & > .title {
+        display: inline-block;
+        margin-left: 10px;
+        height: 2.4rem;
+        flex: 1;
+        color: var(--black);
+    }
+
+    & > .icon {
+        display: block;
+        width: 24px;
+        height: 2.4rem;
+        text-align: center;
+        line-height: 2.4rem;
+    }
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+// Menu-header
+.header {
+    display: flex;
+    height: 50px;
+
+    & > .header-title {
+        font-size: 1.7rem;
+        text-align: center;
+        line-height: 50px;
+        padding-left: 15px;
+    }
+
+    & > .back-btn {
+        width: 25%;
+        font-size: 1.6rem;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
+.line-menu {
+    opacity: 0.3;
+}
