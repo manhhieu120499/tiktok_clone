@@ -8,6 +8,8 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from '~/hooks';
 
+import * as searchService from '~/apiServices/searchService';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
@@ -30,14 +32,16 @@ function Search() {
             setSearchResult([]);
             return;
         }
-        setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${debounce}&type=less`)
-            .then((res) => res.json())
-            .then((accounts) => {
-                setSearchResult(accounts.data);
-                setLoading(false);
-            })
-            .catch((err) => console.error(err));
+
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const res = await searchService.search(debounce);
+            setSearchResult(res.data);
+
+            setLoading(false);
+        };
+        fetchApi();
     }, [debounce]);
 
     const handleClearInput = (e) => {
