@@ -6,6 +6,7 @@ import AccountItem from '~/components/AccountItem';
 
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useState, useRef } from 'react';
+import { useDebounce } from '~/hooks';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -21,21 +22,23 @@ function Search() {
 
     const inputRef = useRef();
 
+    const debounce = useDebounce(searchValue, 500);
+
     //fetch data from backend
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debounce.trim()) {
             setSearchResult([]);
             return;
         }
         setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${searchValue}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${debounce}&type=less`)
             .then((res) => res.json())
             .then((accounts) => {
                 setSearchResult(accounts.data);
                 setLoading(false);
             })
             .catch((err) => console.error(err));
-    }, [searchValue]);
+    }, [debounce]);
 
     const handleClearInput = (e) => {
         setSearchValue('');
