@@ -8,7 +8,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useState, useRef } from 'react';
 import { useDebounce } from '~/hooks';
 
-import * as searchService from '~/apiServices/searchService';
+import * as searchService from '~/services/searchService';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -62,6 +62,7 @@ function Search() {
     };
 
     return (
+        // Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div>
             <HeadlessTippy
                 interactive={true}

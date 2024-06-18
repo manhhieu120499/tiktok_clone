@@ -28,7 +28,7 @@ import Menu from '~/components/Popper/Menu';
 import { Inbox, Message, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -48,6 +48,116 @@ const MENU_ITEMS = [
                     type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'rs',
+                    title: 'Russia',
+                },
+                {
+                    type: 'language',
+                    code: 'fa',
+                    title: 'France',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'Thái Lan',
+                },
+                {
+                    type: 'language',
+                    code: 'ch',
+                    title: 'Chinese',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: 'Japan',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'Australia',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'rs',
+                    title: 'Russia',
+                },
+                {
+                    type: 'language',
+                    code: 'fa',
+                    title: 'France',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'Thái Lan',
+                },
+                {
+                    type: 'language',
+                    code: 'ch',
+                    title: 'Chinese',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: 'Japan',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'Australia',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'rs',
+                    title: 'Russia',
+                },
+                {
+                    type: 'language',
+                    code: 'fa',
+                    title: 'France',
+                },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'Thái Lan',
+                },
+                {
+                    type: 'language',
+                    code: 'ch',
+                    title: 'Chinese',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: 'Japan',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'Australia',
                 },
             ],
         },
@@ -111,7 +221,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-brand')}>
+                <Link to={config.routes.home} className={cx('logo-brand')}>
                     <img src={images.logo} alt="logo-brand-tiktok" />
                 </Link>
                 {/* Search account */}
