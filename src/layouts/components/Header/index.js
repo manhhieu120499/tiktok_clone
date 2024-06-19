@@ -263,7 +263,7 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 ref={imageRef}
-                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/21e9e4f05af5e40b410f9a54d6c4b475~c5_100x100.jpeg?lk3s=a5d48078&nonce=12262&refresh_token=3222d8454c2146a21f238d43f80084af&x-expires=1718593200&x-signature=zsQkUtuSZruLQhMGAQwN5cAs2As%3D&shp=a5d48078&shcp=81f88b70"
+                                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/21e9e4f05af5e40b410f9a54d6c4b475~c5_100x100.jpeg?lk3s=a5d48078&nonce=61071&refresh_token=a8937d4faced7589fcdb7a943de9387d&x-expires=1718938800&x-signature=EGEjTS3xrQ%2BZzMWu4WdwLgay03U%3D&shp=a5d48078&shcp=81f88b70"
                                 alt="avatar-current-user"
                                 className={cx('avatar-user')}
                                 fallback="https://cdn1.iconfinder.com/data/icons/interaction-16/70/error__warning__profile__user__avatar-512.png"
