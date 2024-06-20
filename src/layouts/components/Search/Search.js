@@ -11,7 +11,7 @@ import { useDebounce } from '~/hooks';
 import * as searchService from '~/services/searchService';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
@@ -24,11 +24,11 @@ function Search() {
 
     const inputRef = useRef();
 
-    const debounce = useDebounce(searchValue, 500);
+    const debounceValue = useDebounce(searchValue, 500);
 
     //fetch data from backend
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -36,13 +36,13 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const res = await searchService.search(debounce);
+            const res = await searchService.search(debounceValue);
             setSearchResult(res.data);
 
             setLoading(false);
         };
         fetchApi();
-    }, [debounce]);
+    }, [debounceValue]);
 
     const handleClearInput = (e) => {
         setSearchValue('');
@@ -95,7 +95,6 @@ function Search() {
 
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
                         <SearchIcon />
                     </button>
                 </div>
