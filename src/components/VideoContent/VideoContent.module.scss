@@ -1,0 +1,40 @@
+.group-video {
+    max-width: 300px;
+    position: relative;
+}
+
+.group-video.medium {
+    max-width: none;
+    position: relative;
+}
+
+.controls-video {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    .playing:hover,
+    .muting:hover {
+        cursor: pointer;
+    }
+}
+
+.video-item {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(120%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

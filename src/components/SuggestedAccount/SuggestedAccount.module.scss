@@ -1,0 +1,74 @@
+.wrapper {
+    padding: 8px 0;
+    border-top: 1px solid #e3e3e4;
+}
+
+.label {
+    padding: 0px 8px;
+    margin-bottom: 8px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 18px;
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 200ms ease-in-out 0s;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.nickname {
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    margin-top: -2px;
+
+    & > .item-icon {
+        margin-left: 8px;
+        font-size: 1.4rem;
+        color: #20d5ec;
+    }
+}
+
+.nickname,
+.name {
+    max-width: 170px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.more-detail_account {
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: var(--font-family);
+    padding: 0 8px;
+    color: #fe2c55;
+    cursor: pointer;
+}

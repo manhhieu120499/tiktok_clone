@@ -1,0 +1,102 @@
+.content-item {
+    max-width: 800px;
+    min-width: 500px;
+    width: 100%;
+    border-bottom: 1px solid #e3e3e4;
+    padding: 15px 0;
+    overflow: hidden;
+    max-height: calc(100 - var(--default-layout-header-height));
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    width: 100%;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.content-item-header {
+    display: flex;
+    align-items: center;
+}
+
+.content-item-avatar {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content-item-info {
+    margin-left: 15px;
+
+    .nickname {
+        font-size: 1.6rem;
+        font-weight: 700;
+        font-family: var(--font-family);
+        display: inline-block;
+        margin-bottom: 0.8rem;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+
+        .item-icon-check {
+            margin: 0 5px;
+            color: #20d5ec;
+            width: 1.4rem;
+            height: 1.4rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .username {
+        font-size: 1.4rem;
+        font-weight: 400;
+        font-family: var(--font-family);
+        color: rgba(22, 24, 35, 0.7);
+    }
+
+    .content-item-des {
+        font-size: 1.3rem;
+        font-family: var(--font-family);
+        width: 400px;
+    }
+}
+.content-item-hashtag {
+    font-size: 1.4rem;
+    margin-left: 70px;
+    max-width: 400px;
+
+    .hashtag {
+        margin-bottom: 5px;
+        display: block;
+        max-width: 300px;
+        background-color: #f1f1f1;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+
+    .music_link:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.content-btn {
+    position: absolute;
+    top: 5px;
+    right: 50px;
+}
+
+.content-item-body {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    // height: 500px;
+}

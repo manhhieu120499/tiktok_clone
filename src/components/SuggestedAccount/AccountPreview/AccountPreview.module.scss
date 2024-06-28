@@ -1,0 +1,63 @@
+// Tippy Account Preview
+.account-preview {
+    width: 324px;
+    min-height: 150px;
+    padding: 16px;
+}
+
+.avatar-account {
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-info {
+    margin: 8px 0;
+}
+.nickname {
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    margin-top: -2px;
+
+    & > .item-icon {
+        margin-left: 8px;
+        font-size: 1.4rem;
+        color: #20d5ec;
+    }
+}
+
+.nickname,
+.name {
+    max-width: 170px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.name {
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    color: rgba(22, 24, 35, 0.75);
+}
+
+.view {
+    display: flex;
+    gap: 40px;
+}
+
+.follower,
+.like {
+    font-size: 1.4rem;
+}
+
+.text {
+    margin-right: 8px;
+    font-weight: 700;
+}
