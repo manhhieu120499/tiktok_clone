@@ -16,23 +16,19 @@ import PropTypes from 'prop-types';
 import formatNumber from '~/utils/formatNumber';
 import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
+import ButtonFavorite from '../ButtonFavourite';
+import ButtonBookMark from '../ButtonBookMark';
 
 const cx = classNames.bind(styles);
 function GroupButton({ like, comments, bookMark, share }) {
     return (
         <div className={cx('group-btn')}>
-            <button className={cx('btn-action-video')}>
-                <HeartIcon />
-            </button>
-            <strong className={cx('text')}>{formatNumber(like) || '120K'}</strong>
+            <ButtonFavorite like={like} />
             <button className={cx('btn-action-video')}>
                 <MessageCommentsIcon />
             </button>
             <strong className={cx('text')}>{formatNumber(comments) || '10N'}</strong>
-            <button className={cx('btn-action-video')}>
-                <BookMarkIcon />
-            </button>
-            <strong className={cx('text')}>{formatNumber(bookMark) || '50'}</strong>
+            <ButtonBookMark bookMark={bookMark} />
             <div>
                 <Tippy
                     interactive
@@ -77,10 +73,10 @@ function GroupButton({ like, comments, bookMark, share }) {
 }
 
 GroupButton.propTypes = {
-    like: PropTypes.number,
-    comments: PropTypes.number,
-    bookMark: PropTypes.number,
-    share: PropTypes.number,
+    like: PropTypes.number.isRequired,
+    comments: PropTypes.number.isRequired,
+    bookMark: PropTypes.number.isRequired,
+    share: PropTypes.number.isRequired,
 };
 
 export default GroupButton;

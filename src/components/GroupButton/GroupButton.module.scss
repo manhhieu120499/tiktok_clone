@@ -14,6 +14,64 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
+    background-color: rgba(22, 24, 35, 0.06);
+
+    &.favorite {
+        color: var(--primary);
+        animation: EffectFavorite 0.7s ease-in;
+    }
+
+    &.like {
+        color: #face15;
+        position: relative;
+    }
+
+    &.like::before {
+        content: '';
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        border: 1px solid #face15;
+        position: absolute;
+        z-index: -1;
+        transition: all 0.2s ease-in-out;
+        animation: EffectLike 0.2s ease-in-out;
+    }
+}
+
+@keyframes EffectLike {
+    0% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(0.7);
+    }
+    70% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes EffectFavorite {
+    0% {
+        transform: scale(1.4);
+        border: 1px solid yellow;
+    }
+    50% {
+        transform: scale(0.7);
+        border: 1px solid yellow;
+    }
+    70% {
+        transform: scale(0.8);
+        border: 1px solid yellow;
+    }
+    100% {
+        transform: scale(1);
+        border: 1px solid yellow;
+    }
 }
 
 .text {

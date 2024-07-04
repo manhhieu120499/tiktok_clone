@@ -30,6 +30,7 @@ const LIST_CONTENTS_FOLLOW = [
         share: 120,
         comments: 43,
         bookMark: 247,
+        followed: true,
     },
 ];
 
