@@ -13,6 +13,7 @@
     width: var(--default-with-content-post-video);
     border-left: 1px solid #ccc;
     padding-top: 20px;
+    position: relative;
 }
 
 .content_header {
@@ -185,10 +186,10 @@
 }
 
 .comments {
-    padding: 24px;
+    padding: 24px 24px 250px 24px;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    max-height: 400px;
+    max-height: 500px;
 }
 
 .single_video {
@@ -197,4 +198,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+// post_comment
+.post_comment {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    right: 0;
+    border-top: 1px solid #ccc;
+    z-index: 10;
+    background-color: white;
 }

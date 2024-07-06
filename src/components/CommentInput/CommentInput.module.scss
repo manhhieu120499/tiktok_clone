@@ -1,0 +1,52 @@
+.wrapper {
+    width: 100%;
+    padding: 20px 25px;
+}
+
+.input-group {
+    padding: 10px 0;
+    flex: 1;
+    border-radius: 10px;
+    background-color: rgba(22, 24, 35, 0.06);
+    display: flex;
+    align-items: center;
+}
+
+.input-group:focus-within {
+    outline: 1px solid rgba(22, 24, 35, 0.2);
+}
+.input_text {
+    width: 82%;
+    padding-left: 10px;
+    background: none;
+    font-size: 1.4rem;
+    font-family: var(--font-family0);
+    font-weight: 600;
+}
+
+.btn_send {
+    width: 15%;
+    padding: 5px;
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+    font-weight: 700;
+    background: none;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.input_text:not(:placeholder-shown) ~ .btn_send {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.tag_user,
+.emoji {
+    font-size: 1.3rem;
+    font-family: var(--font-family);
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}

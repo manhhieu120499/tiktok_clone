@@ -20,6 +20,7 @@ import Tippy from '@tippyjs/react';
 import Comments from '~/components/Comment';
 import ButtonFavorite from '~/components/ButtonFavourite';
 import ButtonBookMark from '~/components/ButtonBookMark';
+import CommentInput from '~/components/CommentInput';
 
 const cx = classNames.bind(styles);
 
@@ -158,12 +159,15 @@ function VideoDetail({ src }) {
                 </div>
                 <div className={cx('content_body')}>
                     <ul className={cx('menu')}>
-                        <li className={cx('menu_item')}>Bình luận</li>
-                        <li className={cx('menu_item')}>Tạo video</li>
+                        <li className={cx('menu_item')}>Comments</li>
+                        <li className={cx('menu_item')}>Creator videos</li>
                     </ul>
                     <div className={cx('comments')}>
                         <Comments comment={COMMENT} />
                         <Comments comment={COMMENT} />
+                    </div>
+                    <div className={cx('post_comment')}>
+                        <CommentInput />
                     </div>
                 </div>
             </div>

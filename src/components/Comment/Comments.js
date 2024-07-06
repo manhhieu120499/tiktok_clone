@@ -18,7 +18,7 @@ function Comments({ comment }) {
                 creator={comment.creator}
             />
             <button onClick={() => setShow(!show)} className={cx('btn_show_more')}>
-                Xem thêm phản hồi (2)
+                View 2 reply
                 <ArrowDownIconSmall />
             </button>
             {comment.feedback.length > 0 && show && (

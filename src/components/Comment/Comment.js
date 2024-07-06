@@ -29,7 +29,7 @@ function Comment({
                     <span className={cx('comment-time')}>{timePost}</span>
                 </div>
                 <div className={cx('comment-content')}>{content}</div>
-                <button className={cx('btn_feedback')}>Phản hồi</button>
+                <button className={cx('btn_feedback')}>Reply</button>
             </div>
             <div className={cx('comment_option')}>
                 <div className={cx('elipse_option')}>
