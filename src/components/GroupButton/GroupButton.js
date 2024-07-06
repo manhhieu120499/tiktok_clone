@@ -23,12 +23,12 @@ const cx = classNames.bind(styles);
 function GroupButton({ like, comments, bookMark, share }) {
     return (
         <div className={cx('group-btn')}>
-            <ButtonFavorite like={like} />
+            <ButtonFavorite like={like} className={cx('btn-action-video')} />
             <button className={cx('btn-action-video')}>
                 <MessageCommentsIcon />
             </button>
             <strong className={cx('text')}>{formatNumber(comments) || '10N'}</strong>
-            <ButtonBookMark bookMark={bookMark} />
+            <ButtonBookMark bookMark={bookMark} className={cx('btn-action-video')} />
             <div>
                 <Tippy
                     interactive

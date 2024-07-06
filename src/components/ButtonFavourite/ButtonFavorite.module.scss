@@ -1,0 +1,35 @@
+.favorite {
+    color: var(--primary);
+    animation: EffectFavorite 0.7s ease-in;
+}
+
+@keyframes EffectFavorite {
+    0% {
+        transform: scale(1.4);
+        border: 1px solid yellow;
+    }
+    50% {
+        transform: scale(0.7);
+        border: 1px solid yellow;
+    }
+    70% {
+        transform: scale(0.8);
+        border: 1px solid yellow;
+    }
+    100% {
+        transform: scale(1);
+        border: 1px solid yellow;
+    }
+}
+.text {
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+    &.styles {
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: 1.3rem;
+        font-family: var(--font-family);
+    }
+}

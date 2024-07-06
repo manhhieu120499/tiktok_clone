@@ -2,12 +2,12 @@ import { HeartIcon } from '../Icons';
 import formatNumber from '~/utils/formatNumber';
 
 import classNames from 'classnames/bind';
-import styles from '../GroupButton/GroupButton.module.scss';
+import styles from './ButtonFavorite.module.scss';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 const cx = classNames.bind(styles);
 
-function ButtonFavorite({ like }) {
+function ButtonFavorite({ like, className, styles }) {
     const [favorite, setFavorite] = useState(false);
     const handleClickFavorite = () => {
         setFavorite(!favorite);
@@ -16,14 +16,20 @@ function ButtonFavorite({ like }) {
     return (
         <>
             <button
-                className={cx('btn-action-video', {
+                className={cx(className, {
                     favorite: favorite,
                 })}
                 onClick={handleClickFavorite}
             >
                 <HeartIcon />
             </button>
-            <strong className={cx('text')}>{formatNumber(like) || '120K'}</strong>
+            <strong
+                className={cx('text', {
+                    styles: styles,
+                })}
+            >
+                {formatNumber(like) || '120K'}
+            </strong>
         </>
     );
 }

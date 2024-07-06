@@ -1,13 +1,13 @@
 import { BookMarkIcon } from '../Icons';
 import formatNumber from '~/utils/formatNumber';
-import styles from '../GroupButton/GroupButton.module.scss';
+import styles from './ButtonBookMark.module.scss';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function ButtonBookMark({ bookMark }) {
+function ButtonBookMark({ bookMark, className, styles }) {
     const [like, setLike] = useState(false);
     const handleClickBookMark = () => {
         setLike(!like);
@@ -15,14 +15,20 @@ function ButtonBookMark({ bookMark }) {
     return (
         <>
             <button
-                className={cx('btn-action-video', {
+                className={cx(className, {
                     like: like,
                 })}
                 onClick={handleClickBookMark}
             >
                 <BookMarkIcon />
             </button>
-            <strong className={cx('text')}>{formatNumber(bookMark) || '50'}</strong>
+            <strong
+                className={cx('text', {
+                    styles: styles,
+                })}
+            >
+                {formatNumber(bookMark) || '50'}
+            </strong>
         </>
     );
 }

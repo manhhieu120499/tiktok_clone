@@ -9,6 +9,7 @@ import FollowingPage from '~/pages/Following';
 import ProfilePage from '~/pages/Profile';
 import UploadPage from '~/pages/Upload';
 import LivePage from '~/pages/Live';
+import VideoDetailPage from '~/pages/VideoDetail';
 
 //Public routes
 const publicRoutes = [
@@ -17,6 +18,7 @@ const publicRoutes = [
     { path: config.routes.profile, component: ProfilePage },
     { path: config.routes.upload, component: UploadPage, layout: HeaderOnly },
     { path: config.routes.live, component: LivePage },
+    { path: config.routes.video, component: VideoDetailPage, layout: null },
 ];
 
 const privateRoutes = [];
