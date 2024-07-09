@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
-function VideoContent({ src = videoKay, size = '' }) {
+function VideoContent({ src = videoKay, size, isSingleVideo, singleControl, setIndexSingleVideo }) {
     const videoRef = useRef();
     const [isPlaying, setPlaying] = useState(true);
     const [isMute, setMute] = useState(true);
@@ -37,8 +37,21 @@ function VideoContent({ src = videoKay, size = '' }) {
                 [size]: size,
             })}
         >
-            <video className={cx('video-item')} src={src} autoPlay ref={videoRef} muted={isMute} loop />
-            <div className={cx('controls-video')}>
+            <video
+                className={cx('video-item', {
+                    [isSingleVideo]: isSingleVideo,
+                })}
+                src={src}
+                autoPlay
+                ref={videoRef}
+                muted={isMute}
+                loop
+            />
+            <div
+                className={cx('controls-video', {
+                    singleControl: singleControl,
+                })}
+            >
                 <div className={cx('playing')} onClick={handlePlayVideo}>
                     {isPlaying && <PlayIcon />}
                     {!isPlaying && <PauseIcon />}
@@ -54,6 +67,8 @@ function VideoContent({ src = videoKay, size = '' }) {
 
 VideoContent.propTypes = {
     size: PropTypes.string,
+    isSingleVideo: PropTypes.string,
+    singleControl: PropTypes.bool,
 };
 
 export default VideoContent;

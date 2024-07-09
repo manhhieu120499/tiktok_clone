@@ -52,7 +52,6 @@ function Comment({
 Comment.propTypes = {
     avatar: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
-    nickname: PropTypes.string.isRequired,
     timePost: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     creator: PropTypes.bool,

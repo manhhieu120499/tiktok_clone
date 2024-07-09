@@ -8,6 +8,8 @@ import Button from '../Button';
 import Image from '../Image';
 import VideoContent from '../VideoContent';
 import GroupButton from '../GroupButton';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 
@@ -26,7 +28,24 @@ function ContentItem({
     bookMark,
     size,
     followed,
+    setIndexSingleVideo,
 }) {
+    const data = {
+        nickname,
+        username,
+        tick,
+        describe,
+        hashtag,
+        music_link,
+        src,
+        avatar,
+        like,
+        share,
+        comments,
+        bookMark,
+        size,
+        followed,
+    };
     return (
         <div className={cx('content-item')}>
             <div className={cx('wrapper')}>
@@ -56,9 +75,12 @@ function ContentItem({
             </div>
             <div className={cx('content-item-body')}>
                 {/* video */}
-                <VideoContent src={src} size={size} />
+                <Link to={routes.video} state={data}>
+                    <VideoContent src={src} size={size} setIndexSingleVideo />
+                    {/* <VideoDetail src={src} /> */}
+                </Link>
                 {/* btn-actions*/}
-                <GroupButton like={like} share={share} comments={comments} bookMark={bookMark} />
+                <GroupButton like={like} share={share} comments={comments} bookMark={bookMark} dataVideo={data} />
             </div>
         </div>
     );
@@ -76,6 +98,7 @@ ContentItem.propTypes = {
     comments: PropTypes.number,
     bookMark: PropTypes.number,
     size: PropTypes.string,
+    setIndexSingleVideo: PropTypes.func.isRequired,
 };
 
 export default ContentItem;

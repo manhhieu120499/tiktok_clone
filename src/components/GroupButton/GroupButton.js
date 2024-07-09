@@ -1,11 +1,9 @@
 import classNames from 'classnames/bind';
 import styles from './GroupButton.module.scss';
 import {
-    BookMarkIcon,
     CopyLinkIcon,
     EmbededIcon,
     FacebookIcon,
-    HeartIcon,
     MessageCommentsIcon,
     SendLinkIcon,
     ShareIcon,
@@ -18,16 +16,21 @@ import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import ButtonFavorite from '../ButtonFavourite';
 import ButtonBookMark from '../ButtonBookMark';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
-function GroupButton({ like, comments, bookMark, share }) {
+function GroupButton({ like, comments, bookMark, share, dataVideo }) {
     return (
         <div className={cx('group-btn')}>
             <ButtonFavorite like={like} className={cx('btn-action-video')} />
-            <button className={cx('btn-action-video')}>
-                <MessageCommentsIcon />
-            </button>
-            <strong className={cx('text')}>{formatNumber(comments) || '10N'}</strong>
+            <Link to={routes.video} state={dataVideo} className={cx('btn_link_video')}>
+                <button className={cx('btn-action-video')}>
+                    <MessageCommentsIcon />
+                </button>
+                <strong className={cx('text')}>{formatNumber(comments) || '10N'}</strong>
+            </Link>
+
             <ButtonBookMark bookMark={bookMark} className={cx('btn-action-video')} />
             <div>
                 <Tippy
@@ -77,6 +80,7 @@ GroupButton.propTypes = {
     comments: PropTypes.number.isRequired,
     bookMark: PropTypes.number.isRequired,
     share: PropTypes.number.isRequired,
+    dataVideo: PropTypes.object.isRequired, // for video detail page
 };
 
 export default GroupButton;

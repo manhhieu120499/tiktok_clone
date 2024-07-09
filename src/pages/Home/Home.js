@@ -66,7 +66,7 @@ function Home() {
     return (
         <>
             {LIST_CONTENTS.map((content, index) => (
-                <ContentItem key={index} {...content} />
+                <ContentItem key={index} {...content} setIndexSingleVideo />
             ))}
         </>
     );
