@@ -15,6 +15,7 @@ const LIST_CONTENTS = [
         share: 100,
         comments: 10000,
         bookMark: 59,
+        timePost: '3d ago',
     },
     {
         nickname: 'ongchuit84',
@@ -29,6 +30,7 @@ const LIST_CONTENTS = [
         share: 120,
         comments: 12000,
         bookMark: 79,
+        timePost: '4d ago',
     },
     {
         nickname: 'nontop.remix',
@@ -44,6 +46,7 @@ const LIST_CONTENTS = [
         comments: 15000,
         bookMark: 100,
         size: 'medium',
+        timePost: '10d ago',
     },
     {
         nickname: 'kieuchi111',
@@ -59,6 +62,7 @@ const LIST_CONTENTS = [
         share: 100,
         comments: 10000,
         bookMark: 59,
+        timePost: '7d ago',
     },
 ];
 
@@ -66,7 +70,7 @@ function Home() {
     return (
         <>
             {LIST_CONTENTS.map((content, index) => (
-                <ContentItem key={index} {...content} setIndexSingleVideo />
+                <ContentItem key={index} {...content} index={index} />
             ))}
         </>
     );

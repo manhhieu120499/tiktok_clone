@@ -2,17 +2,25 @@ import classNames from 'classnames/bind';
 import styles from './VideoContent.module.scss';
 import videoKay from '~/assets/videos/kay.mp4';
 import { MuteIcon, PauseIcon, PlayIcon, UnmuteIcon } from '../Icons';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
+import { useImperativeHandle } from 'react';
 
 const cx = classNames.bind(styles);
 
-function VideoContent({ src = videoKay, size, isSingleVideo, singleControl, setIndexSingleVideo }) {
+function VideoContent({ src = videoKay, size, isSingleVideo, singleControl }, ref) {
     const videoRef = useRef();
     const [isPlaying, setPlaying] = useState(true);
     const [isMute, setMute] = useState(true);
+    useImperativeHandle(ref, () => {
+        return {
+            playVideo: handlePlayVideo,
+        };
+    });
 
-    const handlePlayVideo = () => {
+    const handlePlayVideo = (e) => {
+        e.preventDefault();
         if (isPlaying) {
             videoRef.current.pause();
             setPlaying(false);
@@ -21,7 +29,9 @@ function VideoContent({ src = videoKay, size, isSingleVideo, singleControl, setI
             setPlaying(true);
         }
     };
-    const handleMuteVideo = () => {
+    const handleMuteVideo = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         if (isMute) {
             videoRef.current.muted = false;
             setMute(false);
@@ -71,4 +81,4 @@ VideoContent.propTypes = {
     singleControl: PropTypes.bool,
 };
 
-export default VideoContent;
+export default forwardRef(VideoContent);

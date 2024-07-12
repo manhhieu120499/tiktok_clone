@@ -241,11 +241,24 @@
     transform: rotate(90deg);
 }
 
+.btn_pause_video {
+    position: absolute;
+    transform: translate(0, -50%);
+    background: none;
+}
+
+// size video
 .medium {
     width: 100%;
     height: 100%;
     max-width: 100%;
     padding-top: 80px;
+}
+
+.small {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
 }
 
 .isSingleVideo {

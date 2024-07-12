@@ -28,7 +28,7 @@ function ContentItem({
     bookMark,
     size,
     followed,
-    setIndexSingleVideo,
+    index,
 }) {
     const data = {
         nickname,
@@ -45,6 +45,7 @@ function ContentItem({
         bookMark,
         size,
         followed,
+        index,
     };
     return (
         <div className={cx('content-item')}>
@@ -76,7 +77,7 @@ function ContentItem({
             <div className={cx('content-item-body')}>
                 {/* video */}
                 <Link to={routes.video} state={data}>
-                    <VideoContent src={src} size={size} setIndexSingleVideo />
+                    <VideoContent src={src} size={size} />
                     {/* <VideoDetail src={src} /> */}
                 </Link>
                 {/* btn-actions*/}
@@ -98,7 +99,7 @@ ContentItem.propTypes = {
     comments: PropTypes.number,
     bookMark: PropTypes.number,
     size: PropTypes.string,
-    setIndexSingleVideo: PropTypes.func.isRequired,
+    index: PropTypes.number,
 };
 
 export default ContentItem;
