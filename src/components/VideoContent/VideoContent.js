@@ -1,18 +1,41 @@
 import classNames from 'classnames/bind';
 import styles from './VideoContent.module.scss';
-import videoKay from '~/assets/videos/kay.mp4';
 import { MuteIcon, PauseIcon, PlayIcon, UnmuteIcon } from '../Icons';
 import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import { useImperativeHandle } from 'react';
+import { useElementVisibleOnScreen } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
-function VideoContent({ src = videoKay, size, isSingleVideo, singleControl }, ref) {
+const VideoContent = forwardRef(({ src, size, isSingleVideo, singleControl }, ref) => {
     const videoRef = useRef();
     const [isPlaying, setPlaying] = useState(true);
     const [isMute, setMute] = useState(true);
+
+    const optionRoot = {
+        root: null,
+        margin: '0px',
+        threshold: 0.7,
+    };
+
+    const isVisible = useElementVisibleOnScreen(optionRoot, videoRef);
+
+    useEffect(() => {
+        if (isVisible) {
+            if (videoRef.current.paused) {
+                videoRef.current.play().catch(() => {});
+                setPlaying(true);
+            }
+        } else {
+            if (!videoRef.current.paused) {
+                videoRef.current.pause();
+                setPlaying(false);
+            }
+        }
+    }, [isVisible]);
+
     useImperativeHandle(ref, () => {
         return {
             playVideo: handlePlayVideo,
@@ -73,12 +96,13 @@ function VideoContent({ src = videoKay, size, isSingleVideo, singleControl }, re
             </div>
         </div>
     );
-}
+});
 
 VideoContent.propTypes = {
+    src: PropTypes.string.isRequired,
     size: PropTypes.string,
     isSingleVideo: PropTypes.string,
     singleControl: PropTypes.bool,
 };
 
-export default forwardRef(VideoContent);
+export default VideoContent;

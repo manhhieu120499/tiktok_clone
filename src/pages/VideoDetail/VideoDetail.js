@@ -21,8 +21,7 @@ import Tippy from '@tippyjs/react';
 import ButtonFavorite from '~/components/ButtonFavourite';
 import ButtonBookMark from '~/components/ButtonBookMark';
 import CommentInput from '~/components/CommentInput';
-import { Link, useLocation } from 'react-router-dom';
-import routes from '~/config/routes';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Comments from '~/components/Comment';
 import * as videos from '~/assets/videos';
 import { useState, useRef } from 'react';
@@ -166,18 +165,87 @@ const LIST_CONTENTS = [
         timePost: '7d ago',
     },
 ];
+const LIST_CONTENTS_FOLLOW = [
+    {
+        nickname: 'naiverosieads',
+        username: 'Hồng Ngốc Đây',
+        tick: true,
+        describe: 'Chúng tôi thích hỏi vì chúng tôi muốn nũng nịu xíu thoi 😖',
+        hashtag: '#naiverosie',
+        music_link: 'nhạc nền - Hồng ngốc đây - Hồng Ngốc Đây',
+        src: videos.default.hong,
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/aa9877b1103572aba0ca7b392229709f.jpeg?lk3s=a5d48078&nonce=14119&refresh_token=1f9fbd7948a52f67f4b6736dd99f990d&x-expires=1719716400&x-signature=eLrBpPhKTn47GOjyTBZjhRrAJcc%3D&shp=a5d48078&shcp=81f88b70',
+        like: 301000,
+        share: 120,
+        comments: 8215,
+        bookMark: 2013,
+        followed: true,
+        size: 'small',
+    },
+    {
+        nickname: 'vi.stu',
+        username: 'vi.stu',
+        tick: true,
+        describe: 'Hiệu ứng hay vãi ae ạ 😍#laptrinh#vistu_laptrinh#vistu',
+        hashtag: 'CapCut · Edit like a pro',
+        music_link: 'nhạc nền - vi.stu',
+        src: videos.default.vistu,
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/c89d35a3dee03ded1220e7a5f39f7741.jpeg?lk3s=a5d48078&nonce=83258&refresh_token=227a0a1172e39b174313dc436bce4a99&x-expires=1719712800&x-signature=wqBSdf4J%2BOBhW3sUW70l51dEOE8%3D&shp=a5d48078&shcp=81f88b70',
+        like: 525,
+        share: 120,
+        comments: 43,
+        bookMark: 247,
+        followed: true,
+        size: 'small',
+    },
+    {
+        nickname: 'trunrau',
+        username: 'Trun Râu',
+        tick: true,
+        describe: 'Dạo này hay Bị Suy mà suy nhạc nhé 😆 🧔🏽‍♀️❤️‍🩹🍻🔥🤘🏻"lao tâm khổ tứ - Thanh Hưng"',
+        hashtag: 'CapCut · Edit like a pro',
+        music_link: 'nhạc nền - Trun Râu',
+        src: videos.default.trun,
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/0ba6916f81cf6589bbb83a1160fd193f.jpeg?lk3s=a5d48078&nonce=23044&refresh_token=754cb27991e8f3f56b1ba2d268422828&x-expires=1720933200&x-signature=E2mY2MTwFFKK5B6guohA%2B7tbqv0%3D&shp=a5d48078&shcp=81f88b70',
+        like: 22540,
+        share: 120,
+        comments: 1172,
+        bookMark: 18300,
+        followed: true,
+        size: 'small',
+    },
+];
 
 function VideoDetail() {
     // dùng để lấy dữ liệu từ state trong Component Link của react-router-dom
     const data = useLocation();
+    const listData = () => {
+        let result = [];
+        LIST_CONTENTS.forEach((item) => {
+            if (item.nickname === data.state.nickname) {
+                result = [...LIST_CONTENTS];
+            }
+        });
+        LIST_CONTENTS_FOLLOW.forEach((item) => {
+            if (item.nickname === data.state.nickname) {
+                result = [...LIST_CONTENTS_FOLLOW];
+            }
+        });
+        return result;
+    };
     const [indexVideo, setIndexVideo] = useState(data.state.index);
-    const videoData = indexVideo !== -1 ? LIST_CONTENTS[indexVideo] : data.state;
+    const videoData = indexVideo !== -1 ? listData()[indexVideo] : data.state;
     const videoRef = useRef();
     const [show, setShow] = useState(false);
+    const navigate = useNavigate();
 
     const handleVideo = (e) => {
         videoRef.current.playVideo(e);
         setShow(!show);
+    };
+
+    const goBack = () => {
+        navigate(-1);
     };
     return (
         <div className={cx('wrapper')}>
@@ -192,11 +260,11 @@ function VideoDetail() {
                 />
 
                 {/*button close */}
-                <Link to={routes.home}>
-                    <button className={cx('btn_close')}>
-                        <CloseIcon />
-                    </button>
-                </Link>
+
+                <button className={cx('btn_close')} onClick={goBack}>
+                    <CloseIcon />
+                </button>
+
                 {/*button next and prev video */}
                 <div className={cx('btn_option_video')}>
                     {indexVideo !== 0 && (
@@ -210,12 +278,12 @@ function VideoDetail() {
                             <ArrowUpIcon />
                         </button>
                     )}
-                    {indexVideo < LIST_CONTENTS.length - 1 && (
+                    {indexVideo < listData().length - 1 && (
                         <button
                             className={cx('btn_next')}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                if (indexVideo >= LIST_CONTENTS.length) return;
+                                if (indexVideo >= listData().length) return;
                                 setIndexVideo((prev) => prev + 1);
                             }}
                         >

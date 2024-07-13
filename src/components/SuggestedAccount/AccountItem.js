@@ -9,7 +9,11 @@ import { Wrapper as PopperWrapper } from '../Popper';
 import AccountPreview from './AccountPreview';
 const cx = classNames.bind(styles);
 
-function AccountItem({ avatar, name, username }) {
+const defaultFn = () => {
+    return <FontAwesomeIcon icon={faCheckCircle} />;
+};
+
+function AccountItem({ avatar, name, username, Icon = defaultFn }) {
     const renderPreview = (props) => (
         <div tabIndex="-1" {...props}>
             <PopperWrapper>
@@ -40,6 +44,7 @@ AccountItem.propTypes = {
     avatar: PropTypes.string,
     name: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
+    Icon: PropTypes.elementType,
 };
 
 export default AccountItem;

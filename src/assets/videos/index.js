@@ -4,6 +4,7 @@ import videoNonstop from '~/assets/videos/nonstop.mp4';
 import videoKieuChi from '~/assets/videos/kieuchi.mp4';
 import videoHong from '~/assets/videos/hong.mp4';
 import videoVistu from '~/assets/videos/vistu.mp4';
+import videoTrun from '~/assets/videos/trunrau.mp4';
 const videos = {
     kay: videoKay,
     it: videoIT,
@@ -11,6 +12,7 @@ const videos = {
     kieuChi: videoKieuChi,
     hong: videoHong,
     vistu: videoVistu,
+    trun: videoTrun,
     //... add more videos here
 };
 

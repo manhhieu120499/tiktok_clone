@@ -16,6 +16,7 @@ const LIST_CONTENTS_FOLLOW = [
         comments: 8215,
         bookMark: 2013,
         followed: true,
+        size: 'small',
     },
     {
         nickname: 'vi.stu',
@@ -31,6 +32,23 @@ const LIST_CONTENTS_FOLLOW = [
         comments: 43,
         bookMark: 247,
         followed: true,
+        size: 'small',
+    },
+    {
+        nickname: 'trunrau',
+        username: 'Trun Râu',
+        tick: true,
+        describe: 'Dạo này hay Bị Suy mà suy nhạc nhé 😆 🧔🏽‍♀️❤️‍🩹🍻🔥🤘🏻"lao tâm khổ tứ - Thanh Hưng"',
+        hashtag: 'CapCut · Edit like a pro',
+        music_link: 'nhạc nền - Trun Râu',
+        src: videos.default.trun,
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/0ba6916f81cf6589bbb83a1160fd193f.jpeg?lk3s=a5d48078&nonce=23044&refresh_token=754cb27991e8f3f56b1ba2d268422828&x-expires=1720933200&x-signature=E2mY2MTwFFKK5B6guohA%2B7tbqv0%3D&shp=a5d48078&shcp=81f88b70',
+        like: 22540,
+        share: 120,
+        comments: 1172,
+        bookMark: 18300,
+        followed: true,
+        size: 'small',
     },
 ];
 
@@ -38,7 +56,7 @@ function Following() {
     return (
         <>
             {LIST_CONTENTS_FOLLOW.map((content, index) => (
-                <ContentItem key={index} {...content} />
+                <ContentItem key={index} {...content} index={index} />
             ))}
         </>
     );

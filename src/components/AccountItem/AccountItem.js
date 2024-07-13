@@ -15,7 +15,7 @@ function AccountItem({ data }) {
             <div className={cx('info')}>
                 <p className={cx('name')}>
                     <span>{data.full_name}</span>
-                    {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCircleCheck} />}
+                    {data.tick && <FontAwesomeIcon icon={faCircleCheck} className={cx('check')} />}
                 </p>
                 <span className={cx('username')}>{data.nickname}</span>
             </div>
