@@ -247,8 +247,15 @@ function VideoDetail() {
     const goBack = () => {
         navigate(-1);
     };
+
+    const background = {
+        backgroundImage: `url(${videoData.avatar})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    };
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper')} style={background}>
             <div className={cx('single_video')} onClick={handleVideo}>
                 {/* video */}
                 <VideoContent
