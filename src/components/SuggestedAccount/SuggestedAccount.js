@@ -7,17 +7,17 @@ const cx = classNames.bind(styles);
 
 const AccountList = [
     {
-        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/c89d35a3dee03ded1220e7a5f39f7741.jpeg?lk3s=a5d48078&nonce=59159&refresh_token=770c9c50d9409e048cc177ffc63a0e9f&x-expires=1719046800&x-signature=Ib%2B2affwapmDMwb5FUlBWPzaEIM%3D&shp=a5d48078&shcp=81f88b70',
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/c89d35a3dee03ded1220e7a5f39f7741.jpeg?lk3s=30310797&nonce=12528&refresh_token=67a6bddbecb59cae804934ac11acf7ed&x-expires=1721016000&x-signature=GQI63SgmCOMPfPWEacFFDoAOA4A%3D&shp=30310797&shcp=-',
         name: 'vi.stu',
         username: 'vi.stu',
     },
     {
-        avatar: 'https://p9-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/3bb4df65261ab2ca96a095e6936ce829.jpeg?lk3s=a5d48078&nonce=72763&refresh_token=4fd435b4237c3075201218d746331d9e&x-expires=1719046800&x-signature=ZBIadDlYS4w4DPT94FNtrVy3zio%3D&shp=a5d48078&shcp=81f88b70',
+        avatar: 'https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/2318d1cc144c0627dfb2f4e61e09d9a4.jpeg?lk3s=30310797&nonce=35293&refresh_token=8b245c2a26d511b98209a298312fe59d&x-expires=1721016000&x-signature=i0v0bSifbT7rGEmrwChDd14g5v0%3D&shp=30310797&shcp=-',
         name: 'dongdendidev',
         username: 'Đồng Đen Đi Dev',
     },
     {
-        avatar: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/6036fca8d78226c485fd34289504fdd4~c5_100x100.jpeg?lk3s=a5d48078&nonce=71709&refresh_token=c4c63f289bca4ca58a4dd40e3cc43b72&x-expires=1719050400&x-signature=oQGnAH95cwQoZv1nkb7pmoRZVRo%3D&shp=a5d48078&shcp=81f88b70',
+        avatar: 'https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/6036fca8d78226c485fd34289504fdd4~c5_100x100.jpeg?lk3s=30310797&nonce=60498&refresh_token=d61eaa62c954966ca3a15384fee8e84d&x-expires=1721016000&x-signature=%2B5O5WVbwdtdHEwr0zY8StxVOmIY%3D&shp=30310797&shcp=-',
         name: 'dangcharlie2000',
         username: 'Đang Charlie',
     },
